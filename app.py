@@ -14,5 +14,16 @@ def home():
 
         entries.append((entry_content, formatted_date))
 
+        enteries_with_date = [
+            (
+                entry[0],
+                entry[1],
+                datetime.datetime.strptime(entry[1], "%Y-%m-%d").strftime("%b %d")
 
-    return render_template("home.html", entries = entries)
+            )
+
+            for entry in entries
+        ]
+
+
+    return render_template("home.html", entries = enteries_with_date)
